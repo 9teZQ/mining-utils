@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# MultiAlgo Switching for CCMiner with MiningPoolHub
+# using autoswtich: NVIDIA - Cryptonight, Equihash, Groestl, Lyra2RE2, Myriad-Groestl, NeoScrypt, Skein
+
+while true; do
+  if [ -x "$(command -v ethminer)" ]
+    ethminer --farm-retries 0 -G -S us-east.ethash-hub.miningpoolhub.com:12020 -O pist0lgrippump.local1:x -FS exit
+  fi
+
+  if [ -x "$(command -v ccminer)" ]
+    # Cryptonight
+    ccminer -r 0 -a cryptonight -o stratum+tcp://us-east.cryptonight-hub.miningpoolhub.com:12024 -u pist0lgrippump.local1 -p x -D
+    # Equihash
+    ccminer -r 0 -a equihash -o stratum+tcp://us-east.equihash-hub.miningpoolhub.com:12023 -u pist0lgrippump.local1 -p x -D
+    # Groestl
+    # ccminer -r 0 -a groestl -o stratum+tcp://hub.miningpoolhub.com:12004 -u pist0lgrippump.local1 -p x -D
+    # Lyra2RE2
+    # ccminer -r 0 -a lyra2v2 -o stratum+tcp://hub.miningpoolhub.com:12018 -u pist0lgrippump.local1 -p x -D
+    # Myriad-Groestl
+    # ccminer -r 0 -a myr-gr -o stratum+tcp://hub.miningpoolhub.com:12005 -u pist0lgrippump.local1 -p x -D
+    # NeoScrypt
+    # ccminer -r 0 -a skein -o stratum+tcp://hub.miningpoolhub.com:12016 -u pist0lgrippump.local1 -p x -D
+    # Skein
+    # ccminer -r 0 -a neoscrypt -o stratum+tcp://hub.miningpoolhub.com:12012 -u pist0lgrippump.local1 -p x -D
+  fi
+done
