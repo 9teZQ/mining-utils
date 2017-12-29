@@ -4,8 +4,8 @@
 # using autoswtich: NVIDIA - Cryptonight, Equihash, Groestl, Lyra2RE2, Myriad-Groestl, NeoScrypt, Skein
 
 while true; do
-  if [ -x "$(command -v ethminer)" ]; then
-    ethminer --farm-retries 0 -G -S us-east.ethash-hub.miningpoolhub.com:12020 -O pist0lgrippump.local1:x -FS exit
+  if [ -x "$(command -v ethdcrminer64)" ]; then
+    ethdcrminer64 -epool us-east.ethash-hub.miningpoolhub.com:12020 -ewal pist0lgrippump.local1 -eworker pist0lgrippump.local1 -esm 3 -epsw x -allcoins 1 -retrydelay -1
   fi
 
   if [ -x "$(command -v ccminer)" ]; then
