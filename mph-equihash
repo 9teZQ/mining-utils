@@ -1,0 +1,4 @@
+until ccminer -r 0 -a equihash -o stratum+tcp://us-east.equihash-hub.miningpoolhub.com:17023 -u pist0lgrippump.local1 -p x -D; do
+  echo "Miner 'ccminer' crashed with exit code $?.  Respawning.." >&2
+  sleep 1
+done
